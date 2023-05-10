@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Header.scss';
+import NavCarousel from '../NavCarousel/NavCarousel';
 
 function Header() {
     const [menuActive, setMenuActive] = useState(false);
@@ -58,6 +59,7 @@ function Header() {
                     })}
                 </ul>
             </div>
+            <NavCarousel/>
         </header>
 
 
