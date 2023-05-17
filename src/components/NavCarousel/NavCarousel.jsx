@@ -8,6 +8,7 @@ function NavCarousel() {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [containerWidth, setContainerWidth] = useState(0);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [hover, setHover] = useState(null);
 
     let scrollRight;
     let scrollLeft;
@@ -71,11 +72,13 @@ function NavCarousel() {
             <ul onScroll={() => { setScrollPosition(containerRef.current.scrollLeft) }} className='navCarousel__list' ref={containerRef}>
                 {NavIconData.map((icon) => {
                     return (
-                        <li key={icon.id} >
-                            <div className='navCarousel__item' >
-                                <img className='navCarousel__icon' src={icon.url} alt={icon.alt} />
-                                <p className='navCarousel__name'>{icon.alt}</p>
-                                <p className='navCarousel__info'>{icon.info}</p>
+                        <li key={icon.id}  >
+                            <div className='navCarousel__item'>
+                                <div className={hover === icon.id ? 'navCarousel__item-wrapper navCarousel__item-wrapper--hover': 'navCarousel__item-wrapper'} onMouseEnter={() => setHover(icon.id)} onMouseLeave={() => setHover(null)} >
+                                    <img className='navCarousel__icon' src={icon.url} alt={icon.alt} />
+                                    <p className={hover === icon.id ? 'navCarousel__name navCarousel__name--hover' : 'navCarousel__name'}>{icon.alt}</p>
+                                    <p className='navCarousel__info'>{icon.info}</p>
+                                </div>
                             </div>
                         </li>
                     );
@@ -86,7 +89,7 @@ function NavCarousel() {
                     <button onClick={handleLeftClick} disabled={scrollPosition === 0 ? true : false} className={scrollPosition === 0 ? 'navCarousel__paddle navCarousel__paddle--left navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--left'}></button>
                     <button onClick={handleRightClick} disabled={containerRef.current ? scrollPosition + containerWidth === 1100 ? true : false : false} className={containerRef.current ? scrollPosition + containerWidth === 1100 ? 'navCarousel__paddle navCarousel__paddle--right navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--right' : 'navCarousel__paddle navCarousel__paddle--right'}></button>
                 </div>
-            : ''}
+                : ''}
         </section>
     );
 }
