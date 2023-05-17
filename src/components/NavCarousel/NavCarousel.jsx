@@ -81,10 +81,12 @@ function NavCarousel() {
                     );
                 })}
             </ul>
-            <div className='navCarousel__paddles'>
-                <button onClick={handleLeftClick} disabled={scrollPosition === 0 ? true : false} className={scrollPosition === 0 ? 'navCarousel__paddle navCarousel__paddle--left navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--left'}></button>
-                <button onClick={handleRightClick} disabled={containerRef.current ? scrollPosition + containerRef.current.offsetWidth === 1100 ? true : false : false} className={containerRef.current ? scrollPosition + containerRef.current.offsetWidth === 1100 ? 'navCarousel__paddle navCarousel__paddle--right navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--right' : 'navCarousel__paddle navCarousel__paddle--right'}></button>
-            </div>
+            {containerWidth < windowWidth ?
+                <div className='navCarousel__paddles'>
+                    <button onClick={handleLeftClick} disabled={scrollPosition === 0 ? true : false} className={scrollPosition === 0 ? 'navCarousel__paddle navCarousel__paddle--left navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--left'}></button>
+                    <button onClick={handleRightClick} disabled={containerRef.current ? scrollPosition + containerWidth === 1100 ? true : false : false} className={containerRef.current ? scrollPosition + containerWidth === 1100 ? 'navCarousel__paddle navCarousel__paddle--right navCarousel__paddle--disable' : 'navCarousel__paddle navCarousel__paddle--right' : 'navCarousel__paddle navCarousel__paddle--right'}></button>
+                </div>
+            : ''}
         </section>
     );
 }
