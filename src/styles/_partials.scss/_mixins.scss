@@ -40,6 +40,7 @@
         transform: translateY(-3.25px) rotateZ(-45deg);
     }
 }
+
 @keyframes menu-close1 {
     0% {
         transform: translateY(3.25px) rotateZ(45deg);
@@ -50,7 +51,7 @@
     }
 
     100% {
-        transform: translateY(0) ;
+        transform: translateY(0);
     }
 }
 
@@ -70,7 +71,7 @@
 
 @keyframes modal-open {
     0% {
-        height: 0;
+        transform: translateY(-5%);
         opacity: 0.5;
     }
 
@@ -79,22 +80,22 @@
     }
 
     100% {
-        height: 100%;
+        transform: translateY(0%);
     }
 }
 
 @keyframes modal-close {
     0% {
-        height: 100%;
+        transform: translateY(0%);
         opacity: 1;
     }
 
     75% {
-       opacity: 0.5;
+        opacity: 0.5;
     }
 
     100% {
-        height: 0;
+        transform: translateY(-5%);
     }
 }
 
@@ -115,5 +116,55 @@
 
     to {
         opacity: 0;
+    }
+}
+
+@keyframes offer {
+    0% {
+        transform: translateY(-100%);
+        background-color: #0071e3;
+    }
+
+    25% {
+        transform: translateY(0%);
+        background-color: #0071e3;
+    }
+
+    60% {
+        background-color: #0071e3;
+    }
+
+    100% {
+        content: normal;
+        background-color: $secondary-colour-text;
+    }
+}
+
+@keyframes offer-text {
+    0% {
+        color: white;
+    }
+
+    25% {
+        color: white;
+    }
+
+    60% {
+        color: white;
+
+    }
+
+    100% {
+        color: $primary-colour-text;
+    }
+}
+
+@keyframes carousel {
+    from {
+        transform: translateX(50%);
+    }
+
+    to {
+        transform: translateX(0%);
     }
 }

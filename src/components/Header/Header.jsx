@@ -61,9 +61,6 @@ function Header() {
             </div>
             <NavCarousel/>
         </header>
-
-
-
     );
 
 }

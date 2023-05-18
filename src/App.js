@@ -1,9 +1,14 @@
 import './App.scss';
 import Header from './Components/Header/Header';
+import OfferBanner from './Components/OfferBanner/OfferBanner';
 
 function App() {
   return (
-    <Header/>
+    <>
+      <Header className="header"/>
+      <OfferBanner className="offer"/>
+    </>
+
   );
 }
 

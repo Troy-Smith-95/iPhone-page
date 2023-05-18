@@ -10,6 +10,7 @@
         height: 3rem;
         background-color: $secondary-colour-text;
         padding: 0 1rem;
+        margin-bottom: 0.75rem;
 
         @include tablet {
             padding: 0 1.75rem;
@@ -44,7 +45,7 @@
         width: 1rem;
         height: auto;
         opacity: 0.8;
-        z-index: 2;
+        z-index: 3;
 
         &:hover {
             cursor: pointer;
@@ -90,7 +91,6 @@
         margin-bottom: 5px;
         border-radius: 1px;
 
-
         &--active {
             animation: menu-open1 0.22s ease-in;
             animation-fill-mode: forwards;
@@ -107,7 +107,6 @@
         height: 1.5px;
         margin-bottom: 5px;
         border-radius: 1px;
-
 
         &--active {
             animation: menu-open2 0.22s ease-in;
@@ -128,13 +127,13 @@
             background-color: $primary-colour-background;
             position: absolute;
             top: 0;
-            z-index: 1;
+            z-index: 2;
             padding: 1.75rem 0 0 0.5rem;
             animation: modal-open 0.4s ease-out;
         }
 
         &--closing {
-            animation: modal-close 0.4s ease-out;
+            animation: modal-close 0.5s ease-out;
         }
 
     }
